@@ -1,40 +1,36 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Cinzel } from 'next/font/google'
+import { Playfair_Display, Montserrat, Cinzel } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+// Playfair Display — заголовки (поддерживает кириллицу, античный стиль с засечками)
+const playfair = Playfair_Display({
+  variable: '--font-playfair',
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700', '800'],
 })
+
+// Montserrat — основной текст (хорошая читаемость, кириллица)
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700'],
+})
+
+// Cinzel — декоративные латинские надписи (SPQR, римские цифры)
 const cinzel = Cinzel({
   variable: '--font-cinzel',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '600', '700'],
 })
 
 export const metadata: Metadata = {
-  title: 'Великая Империя — Римский шоу-парк в Геленджике',
+  title: 'Парк «Римская империя» в Геленджике — семейный шоу-парк',
   description:
-    'Семейное приключение в мире легионеров: бои гладиаторов, экскурсии, скалодром, мастер-классы и античный тир. Геленджик, Сухумское шоссе.',
-  generator: 'v0.app',
+    'Семейный отдых в атмосфере Древнего Рима: гладиаторские шоу, квесты, античный тир, мастер-классы и фотозоны. Геленджик, Сухумское шоссе, 4 км. Бесплатная парковка.',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/IMG_4716.JPG',
+    apple: '/IMG_4716.JPG',
   },
 }
 
@@ -46,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} bg-background`}
+      className={`${playfair.variable} ${montserrat.variable} ${cinzel.variable} bg-background scroll-smooth`}
     >
       <body className="font-sans antialiased">
         {children}

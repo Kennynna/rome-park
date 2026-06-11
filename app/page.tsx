@@ -1,21 +1,23 @@
-import { SiteHeader } from '@/components/site-header'
+import { Navbar } from '@/components/navbar'
 import { Hero } from '@/components/hero'
-import { ShowSection } from '@/components/show-section'
-import { ActivitiesSection } from '@/components/activities-section'
-import { ScheduleSection } from '@/components/schedule-section'
-import { SiteFooter } from '@/components/site-footer'
+import { Show } from '@/components/show'
+import { Activities } from '@/components/activities'
+import { Pricing } from '@/components/pricing'
+import { Contact } from '@/components/contact'
+import { Footer } from '@/components/footer'
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-background">
-      <SiteHeader />
+    <>
+      <Navbar />
       <main>
         <Hero />
-        <ShowSection />
-        <ActivitiesSection />
-        <ScheduleSection />
+        <Show />
+        <Activities />
+        <Pricing />
+        <Contact />
       </main>
-      <SiteFooter />
-    </div>
+      <Footer />
+    </>
   )
 }
